@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3: Tạo hàm findMin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 1.1em;
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .console-box {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .console-title {
+            color: #569cd6;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .log-item {
+            margin: 5px 0;
+            color: #4ec9b0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bài tập 3: Tạo hàm findMin</h1>
+    <p><strong>Đề bài:</strong> Viết hàm findMin nhận vào một mảng số và trả về số nhỏ nhất trong mảng đó sử dụng vòng lặp for.</p>
+
+    <div class="console-box">
+        <div class="console-title">Kết quả Console (Nhấn F12 để kiểm tra thêm):</div>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function print(...args) {
+            console.log(...args);
+            const outputDiv = document.getElementById('output');
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            
+            const formattedArgs = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : arg);
+            logItem.textContent = '> ' + formattedArgs.join(' ');
+            outputDiv.appendChild(logItem);
+        }
+
+function findMin(arr) {
+    if (arr.length === 0) return null;
+    let min = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+print(findMin([5, 2, 8, 1, 4])); // 1
+    </script>
+</body>
+</html>
